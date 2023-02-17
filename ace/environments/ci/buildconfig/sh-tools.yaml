@@ -17,8 +17,9 @@ spec:
 
       ARG BINARY=yq_linux_amd64
 
-      RUN apt install --reinstall -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash coreutils gettext && \  
-          wget https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq && \
+      RUN apt install --reinstall -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash coreutils gettext 
+          
+      RUN wget https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq && \
           /usr/bin/chmod +x /usr/bin/yq
 
   strategy:
