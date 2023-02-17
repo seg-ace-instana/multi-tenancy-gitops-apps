@@ -66,7 +66,7 @@ spec:
       script: |
         buildah --storage-driver=$(params.STORAGE_DRIVER) bud \
           $(params.BUILD_EXTRA_ARGS) --format=$(params.FORMAT) \
-          --tls-verify=$(params.TLSVERIFY) --no-cache \
+          --tls-verify=$(params.TLSVERIFY) --net=host --no-cache \
           -f $(params.DOCKERFILE) -t $(params.IMAGE) $(params.CONTEXT)
       securityContext:
         privileged: true
@@ -80,7 +80,7 @@ spec:
       script: |
         buildah --storage-driver=$(params.STORAGE_DRIVER) push \
           $(params.PUSH_EXTRA_ARGS) --tls-verify=$(params.TLSVERIFY) \
-          --digestfile $(workspaces.source.path)/image-digest $(params.IMAGE) \
+          --digestfile $(workspaces.source.path)/image-digest $(params.IMAGE) \ 
           docker://$(params.IMAGE)
       securityContext:
         privileged: true
