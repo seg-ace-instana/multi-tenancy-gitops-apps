@@ -24,7 +24,7 @@ spec:
       #ARG BINARY=yq_linux_amd64
 
       #RUN wget https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq &&\
-          /usr/bin/chmod +x /usr/bin/yq
+      #    /usr/bin/chmod +x /usr/bin/yq
   strategy:
     type: Docker
     dockerStrategy:
