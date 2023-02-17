@@ -22,9 +22,9 @@ spec:
           chmod +x /usr/bin/yq
   strategy:
     type: Docker
-    dockerStrategy:
-      buildArgs:
-        - name: "network"
-          value: "host"
+  dockerStrategy:
+    buildArgs:
+      - name: "network"
+        value: "host"
   triggers:
     - type: ConfigChange
