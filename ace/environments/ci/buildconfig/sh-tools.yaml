@@ -13,10 +13,12 @@ spec:
 
       RUN apt-get update 
 
-      RUN apt-get install -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash coreutils gettext
+      RUN apt-get install --reinstall coreutils
+
+      RUN apt-get install -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash gettext
 
       ARG VERSION=v4.7.1
-      
+
       ARG BINARY=yq_linux_amd64
 
       RUN wget  https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq &&\
