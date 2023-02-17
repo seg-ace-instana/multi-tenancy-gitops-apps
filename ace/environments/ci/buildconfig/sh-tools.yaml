@@ -13,16 +13,14 @@ spec:
 
       RUN apt-get update 
 
-      RUN apt-get install --reinstall coreutils
-
-      RUN apt-get install -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash gettext
+      RUN apt-get install -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash coreutils gettext
 
       ARG VERSION=v4.7.1
 
       ARG BINARY=yq_linux_amd64
 
       RUN wget  https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq &&\
-         chmod +x /usr/bin/yq
+          /usr/bin/chmod +x /usr/bin/yq
   strategy:
     type: Docker
     dockerStrategy:
