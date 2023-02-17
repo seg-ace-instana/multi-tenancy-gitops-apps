@@ -11,15 +11,15 @@ spec:
     dockerfile:
       FROM ubuntu:latest
 
-      RUN apt-get update 
+      RUN apt update 
 
-      RUN apt-get install -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash coreutils gettext
+      RUN apt install --reinstall -y -o APT::Keep-Downloaded-Packages=false wget zip sed bash coreutils gettext
 
       ARG VERSION=v4.7.1
 
       ARG BINARY=yq_linux_amd64
 
-      RUN wget  https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq &&\
+      RUN wget https://github.com/mikefarah/yq/releases/download/$VERSION/$BINARY -O /usr/bin/yq &&\
           /usr/bin/chmod +x /usr/bin/yq
   strategy:
     type: Docker
