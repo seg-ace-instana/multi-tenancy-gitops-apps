@@ -25,7 +25,7 @@ spec:
           - name: gitops-apps-repo-full-name
             value: $(tt.params.git-org)/multi-tenancy-gitops-apps
           - name: github-pr-token-secret-name
-            value: cicd-cwills 
+            value: git@github.com:cicd-cwills 
         pipelineRef:
           name: ace-integration-server
         serviceAccountName: pipeline
