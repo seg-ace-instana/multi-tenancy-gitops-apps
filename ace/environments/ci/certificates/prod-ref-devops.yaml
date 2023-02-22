@@ -3,7 +3,7 @@ items:
 - apiVersion: cert-manager.io/v1
   kind: Certificate
   metadata:
-    name: prod-ref-devsops
+    name: prod-ref-devops
   spec:
     commonName: appdomain.cloud
     dnsNames:
